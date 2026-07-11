@@ -9,7 +9,7 @@ const demoNavItems = [
   { id: "dishes", label: "毛利审计", icon: "ri-pie-chart-2-line", subtitle: "真实毛利分析" },
   { id: "reviews", label: "评论到 SOP", icon: "ri-chat-3-line", subtitle: "差评转任务" },
   { id: "delivery", label: "外卖与备货", icon: "ri-truck-line", subtitle: "算账与预测" },
-  { id: "pilot", label: "7 天试点", icon: "ri-database-2-line", subtitle: "低门槛验证" },
+  { id: "pilot", label: "7 天诊断", icon: "ri-database-2-line", subtitle: "低门槛验证" },
 ];
 
 const pptSlides = [
@@ -21,6 +21,7 @@ const pptSlides = [
     subtitle: "把分散在收银、外卖、评论、成本和备货里的经营信号，转成老板当天就能处理的判断和动作。",
     highlight: "让老板每天先看最该处理的事，而不是每天打开一堆后台找问题。",
     chips: ["当天发现风险", "算清利润影响", "派给门店执行", "复盘整改结果"],
+    image: "/assets/dashboard-demo.png",
   },
   {
     id: 2,
@@ -49,9 +50,9 @@ const pptSlides = [
     type: "loop",
     eyebrow: "AI 价值闭环",
     title: "从发现问题到复盘结果，才叫经营闭环",
-    subtitle: "餐饮老板要的不是多一张报表，而是问题被看见、被安排、被验收。",
-    steps: ["发现异常", "估算影响", "找到证据", "判断原因", "派发任务", "验收结果", "沉淀打法"],
-    quote: "AI 不是说“全店下滑”，而是指出“滨江宝龙店午市工作餐曝光下降”，并给出调整推荐位和午后复盘的动作。",
+    subtitle: "餐饮老板要的不是多一张报表，而是问题被看见、被处理、被验收。",
+    steps: ["发现问题", "讲清证据", "派发任务", "复盘结果"],
+    quote: "滨江宝龙店午市工作餐曝光下降 23% → 店长 10:50 前调整推荐位 → 13:30 自动复盘订单恢复。",
   },
   {
     id: 5,
@@ -66,7 +67,7 @@ const pptSlides = [
       ["城西银泰店", "11,209", "11,627", "-3.6%", "观察"],
       ["西溪印象城店", "9,654", "9,539", "+1.2%", "正常"],
     ],
-    reasoning: ["同类写字楼店未同步下滑", "评论没有明显新增差评", "午市缺口约 2,028 元", "预计可修复 800-1200 元/日"],
+    reasoning: ["同类写字楼店未同步下滑", "评论没有明显新增差评", "午市缺口约 2,028 元", "恢复 40%-60% ≈ 811-1,217 元"],
     verdict: "优先处理滨江宝龙店午市：先恢复曝光，再复盘订单恢复。",
   },
   {
@@ -76,7 +77,8 @@ const pptSlides = [
     title: "首页只回答一个问题：今天先处理哪件事",
     subtitle: "老板进入系统不该先看几十个指标，而是先看到会影响收入、毛利和口碑的关键事件。",
     zones: ["先排序", "讲证据", "给动作"],
-    card: ["滨江宝龙店午市下滑", "不是全店下滑，而是午市单时段下滑", "预计可修复：800-1200 元/日"],
+    card: ["滨江宝龙店午市下滑", "不是全店下滑，而是午市工作餐曝光下降", "经营估算：800-1200 元/日"],
+    image: "/assets/dashboard-demo.png",
   },
   {
     id: 7,
@@ -86,7 +88,7 @@ const pptSlides = [
     subtitle: "AI 按影响金额、证据完整度和可执行性排序，帮总部把今天该管的事排在前面。",
     alerts: [
       ["营收异常", "8 项", "最严重：滨江宝龙店午市 -18.6%"],
-      ["毛利异常", "6 项", "重点：小炒黄牛肉成本率 +6.9pp"],
+      ["毛利异常", "6 项", "重点：小炒黄牛肉毛利率低于目标 12.2pp"],
       ["评论异常", "12 项", "重点：湖滨银泰店漏汤 7 条"],
       ["备货异常", "5 项", "重点：青椒预计多备 8kg"],
     ],
@@ -112,9 +114,10 @@ const pptSlides = [
       ["平台佣金", "-7.8 元"],
       ["包装费", "-1.2 元"],
       ["满减核销", "-3.4 元"],
-      ["单份真实毛利", "9.1 元"],
+      ["损耗摊销", "-0.8 元"],
+      ["单份真实毛利", "8.3 元"],
       ["目标毛利", "12.9 元"],
-      ["差距", "-3.8 元"],
+      ["差距", "-4.6 元"],
     ],
     conclusion: "小炒黄牛肉仍是招牌菜，不建议下架；先暂停深度满减，再复核出成率和门店克重。",
   },
@@ -134,7 +137,7 @@ const pptSlides = [
     eyebrow: "对应 Demo：外卖与备货",
     title: "外卖和备货都要算真实账",
     subtitle: "外卖看订单利润，备货看损耗风险；两件事都直接影响老板口袋里的钱。",
-    left: ["满 45 减 8", "单均真实毛利 11.5 元", "先停止继续加大满减"],
+    left: ["当前：满 45 减 8", "单均真实毛利 9.7 元", "建议试跑：满 45 减 6", "试跑后单均毛利 11.7 元"],
     right: ["青椒预计多备 8kg", "建议减少采购 8kg", "预计少报损 120-200 元/日"],
   },
   {
@@ -145,9 +148,9 @@ const pptSlides = [
     subtitle: "AI 不应该只给结论，还要告诉老板判断来自哪里、哪些确定、哪些还需要补数据。",
     trustCard: [
       ["AI 判断", "小炒黄牛肉销量未降，但真实毛利低于目标"],
-      ["关键证据", "成本率 58.8%，高于目标 6.9pp"],
+      ["关键证据", "真实毛利率 21.8%，低于目标 12.2pp"],
       ["数据来源", "POS、成本卡、外卖活动、平台佣金规则"],
-      ["可信度", "82%，足够用于经营排序"],
+      ["可信度等级", "高：数据完整，可用于经营排序"],
       ["不确定项", "部分门店实际领料缺失，净菜损耗为估算"],
     ],
   },
@@ -155,10 +158,11 @@ const pptSlides = [
     id: 13,
     type: "pilot",
     eyebrow: "低门槛启动",
-    title: "不改系统，先用 4 张表跑 7 天验证",
-    subtitle: "先用客户自己的真实数据跑出经营诊断，再决定要不要进入接口和长期系统合作。",
+    title: "先用 4 张表，7 天完成诊断冲刺",
+    subtitle: "7 天验证判断价值；诊断达标后，再用 4-6 周小范围验证执行效果。",
     tables: ["门店销售日报", "菜品销售明细", "菜品成本卡", "评论样本"],
-    days: ["字段映射", "经营诊断", "菜品四象限", "评论归因", "日报样稿", "任务跟踪", "试点复盘"],
+    days: ["字段映射", "门店诊断", "菜品毛利", "评论归因", "日报样稿", "任务设计", "诊断复盘"],
+    path: "4 张表 → 7 天诊断冲刺 → 4-6 周效果试点",
   },
   {
     id: 14,
@@ -166,17 +170,17 @@ const pptSlides = [
     eyebrow: "合作交付",
     title: "试点交付的是经营诊断，不是演示截图",
     subtitle: "客户最容易被说服的不是功能列表，而是从自己门店数据里跑出来的真实问题和改进动作。",
-    deliverables: ["数据质量评估", "门店异常清单", "菜品真实毛利", "评论整改任务", "AI 日报样稿", "3 个经营动作", "效果复盘", "系统接入建议"],
-    focus: ["当天能看懂", "门店能执行", "老板能决策"],
+    deliverables: ["核心 · 数据质量评估", "核心 · 门店异常清单", "核心 · 菜品真实毛利", "核心 · 评论整改任务", "核心 · AI 日报样稿", "可选 · 外卖诊断", "可选 · 备货预测", "下一步 · 系统接入建议"],
+    focus: ["7 天完成诊断", "4-6 周验证效果", "达标再谈接入"],
   },
   {
     id: 15,
     type: "close",
     eyebrow: "下一步",
-    title: "先拿真实数据验证，再决定是否长期合作",
-    subtitle: "不一开始就谈大系统。先选 1-3 家门店，导出 4 张基础表，7 天跑出一版 AI 经营诊断。",
-    actions: ["确认 1-3 家试点门店", "确认数据对接人", "导出 4 张基础表", "约定 7 天后复盘会"],
-    highlight: "如果诊断结果老板不认可，就不进入长期合作。",
+    title: "先验证判断价值，再进入效果试点",
+    subtitle: "先选 1-3 家门店，用 4 张基础表完成 7 天诊断；达到约定门槛，再进入 4-6 周效果试点。",
+    actions: ["确认 1-3 家诊断门店", "确认数据与经营对接人", "导出 4 张基础表", "约定诊断成功门槛"],
+    highlight: "找不到 3 个客户认可的问题，就不进入下一阶段。",
   },
 ];
 
@@ -193,9 +197,9 @@ const pptTakeaways = {
   review: "评论的价值不在于分类，而在于把差评变成门店可以执行、可以验收的整改动作。",
   delivery: "订单、活动、备货和损耗要放在一张经营账里看，老板才知道该加码还是该收手。",
   trust: "AI 越敢讲清证据和不确定项，老板越敢把它放进日常经营判断。",
-  pilot: "先用 4 张表跑 7 天，让客户用自己的真实问题验证价值。",
-  deliver: "试点要交付能推动决策的诊断材料，而不是只能演示的功能截图。",
-  close: "先小范围验证，结果认可再谈长期合作，降低客户决策成本。",
+  pilot: "7 天先验证判断价值，4-6 周再验证执行效果，不把诊断承诺成经营改善。",
+  deliver: "第一阶段聚焦日报、菜品和评论，增强模块按客户数据条件选配。",
+  close: "先约定成功门槛，再决定是否进入效果试点和长期合作。",
 };
 
 const saasComparisonRows = [
@@ -244,7 +248,7 @@ const pilotFitItems = [
 const reviewEffectRows = [
   ["滨江午市套餐", "订单 +13.5%", "有效，继续试跑 3 天"],
   ["湖滨打包 SOP", "漏汤差评 7 到 2", "有效，推广到外卖高占比店"],
-  ["小炒黄牛肉核查", "成本率 58.8% 到 55.2%", "有改善，继续看称重记录"],
+  ["小炒黄牛肉核查", "单份真实毛利 8.3 到 10.8 元", "有改善，继续看称重记录"],
   ["青椒备货调整", "报损减少 116 元", "有效，纳入净菜计划"],
 ];
 
@@ -284,7 +288,7 @@ const issues = [
       owner: ownerMap[1],
       due: "今日 10:50",
       action: "调整 29.9 元工作餐排序，11:00 前完成备餐检查",
-      acceptance: "11:00-13:00 外卖套餐曝光恢复至昨日 90%，午市订单较昨日 +10%",
+      acceptance: "11:00-13:00 外卖套餐曝光恢复至近 4 周同星期均值 90%，午市订单缺口收窄 40%",
       review: "今日 13:30 自动复盘",
       status: "待确认",
     },
@@ -304,12 +308,12 @@ const issues = [
       "萝卜排骨汤和双人套餐关联度最高",
     ],
     sources: ["美团评论", "外卖订单", "封包抽检"],
-    impact: "预计口碑修复空间 600-1000 元/日",
+    impact: "3 日整改目标：漏汤差评不超过 2 条",
     metric: "差评 7 条",
     aiJudgment: "问题不是口味，而是高峰期封包和出餐交接 SOP 变形。",
     reason: "当班封包照片缺失，骑手等待超过 12 分钟订单占比上升，漏汤差评集中在晚高峰。",
     action: "晚高峰汤品全部双层袋，封包台拍照留证，抽检 20 单。",
-    amountBasis: "按近 30 日差评后复购下降、汤品套餐客单价和同类门店评分变化估算。",
+    amountBasis: "当前数据足以判断问题集中在晚高峰封包环节；复购金额影响需在效果试点中继续校准。",
     compare: "对比：同类门店近 30 日漏汤标签均值",
     task: "湖滨银泰店打包 SOP 复训",
     taskDetails: {
@@ -331,17 +335,17 @@ const issues = [
     image: "/assets/beef-pepper.png",
     priority: "今日必须处理",
     evidence: [
-      "真实毛利 9.1 元，目标毛利 12.9 元，低于目标 3.8 元",
+      "真实毛利 8.3 元，目标毛利 12.9 元，低于目标 4.6 元",
       "黄牛肉净菜出成率 86%，低于标准 6pp",
       "5 家门店晚高峰称重记录缺失",
     ],
     sources: ["菜品销售", "成本卡", "净菜领料"],
-    impact: "预计毛利改善空间 1200-1800 元/日",
-    metric: "成本率 +6.9pp",
+    impact: "近 7 日毛利改善空间 900-1200 元",
+    metric: "毛利率低于目标 12.2pp",
     aiJudgment: "不是卖得不好，而是卖得越多，毛利越容易被成本和活动吃掉。",
     reason: "销量未下降但成本率上升，更可能来自净菜出成率和门店克重执行，不建议先下架或涨价。",
     action: "保留招牌定位，暂停深度满减，异常门店上传晚高峰 10 份出品称重照片。",
-    amountBasis: "按近 7 日销量 327 份、单份低于目标 3.8 元、异常门店恢复 60%-80% 估算。",
+    amountBasis: "近 7 日销量 327 份 × 单份毛利差 4.6 元 × 恢复 60%-80%，对应约 903-1203 元。",
     compare: "对比：目标毛利率 34% 与近 7 日实际",
     task: "小炒黄牛肉成本核查",
     taskDetails: {
@@ -470,13 +474,13 @@ function imageAlt(issue) {
 
 function trustForIssue(issue) {
   const trustMap = {
-    营收异常: ["86%", "POS + 外卖 + 同星期历史数据", "暂未接入实时排班"],
-    评论异常: ["91%", "评论原文 + 外卖订单 + 封包抽检", "封包照片不完整"],
-    毛利异常: ["82%", "菜品销售 + 成本卡 + 净菜领料", "实际报损仍需试点补充"],
-    外卖异常: ["88%", "外卖结算 + 活动规则 + 菜品成本", "竞品活动为间接推测"],
-    备货异常: ["79%", "销量预测 + 库存 + 净菜计划", "天气和临时团餐未完全接入"],
+    营收异常: ["高", "POS + 外卖 + 同星期历史数据", "暂未接入实时排班"],
+    评论异常: ["高", "评论原文 + 外卖订单 + 封包抽检", "封包照片不完整"],
+    毛利异常: ["中", "菜品销售 + 成本卡 + 净菜领料", "实际报损仍需试点补充"],
+    外卖异常: ["高", "外卖结算 + 活动规则 + 菜品成本", "竞品活动为间接推测"],
+    备货异常: ["中", "销量预测 + 库存 + 净菜计划", "天气和临时团餐未完全接入"],
   };
-  return trustMap[issue.type] || ["80%", "多源经营数据", "部分字段待校准"];
+  return trustMap[issue.type] || ["中", "多源经营数据", "部分字段待校准"];
 }
 
 function CanvasLineChart({ primary = salesSeries, secondary = baselineSeries, compact = false }) {
@@ -602,11 +606,10 @@ function Sidebar({ activePage, setActivePage }) {
             <span>介绍 PPT</span>
             <em>15</em>
           </button>
-          <p>Demo 后用于推进客户试点合作</p>
+          <p>Demo 后用于推进客户诊断与试点合作</p>
         </div>
       </nav>
       <div className="sidebar-footer">
-        <button className="ghost-button" type="button"><i className="ri-robot-2-line" /> AI 助理</button>
         <div className="operator">
           <div className="avatar">张</div>
           <div>
@@ -621,40 +624,24 @@ function Sidebar({ activePage, setActivePage }) {
 
 function Topbar({ onGenerate, generating, activePage }) {
   if (activePage === "presentation") {
-    return (
-      <header className="topbar presentation-topbar">
-        <div className="select-like"><i className="ri-slideshow-3-line" /> 介绍 PPT</div>
-        <div className="topbar-controls">
-          <div className="select-like">客户拜访版 · 15 页</div>
-          <div className="select-like">建议：Demo 后讲 10-12 分钟</div>
-          <div className="select-like">定位：AI 经营参谋层</div>
-        </div>
-        <div className="topbar-user">
-          <div className="user-mini"><div className="avatar dark">PPT</div><span>商务演示</span></div>
-        </div>
-      </header>
-    );
+    return null;
   }
 
   return (
     <header className="topbar">
-      <div className="select-like">湘味小炒连锁 <i className="ri-arrow-down-s-line" /></div>
+      <div className="context-chip company-chip">湘味小炒连锁</div>
       <div className="topbar-controls">
-        <div className="select-like"><i className="ri-calendar-line" /> 2026-07-09 周四</div>
-        <div className="select-like">对比：近 4 周同星期均值</div>
-        <div className="select-like">天气：小雨 / 商圈无活动</div>
-        <div className="segmented">
-          <button className="active" type="button">老板视角</button>
-          <button type="button">运营视角</button>
-          <button type="button">店长视角</button>
-        </div>
+        <div className="demo-data-badge">演示样例数据</div>
+        <div className="context-chip"><i className="ri-calendar-line" /> 样例日：2026-07-09</div>
+        <div className="context-chip">对比：近 4 周同星期均值</div>
+        <div className="context-chip weather-chip">天气：小雨 / 商圈无活动</div>
+        <div className="view-indicator">老板视角</div>
         <button className={`primary-action ${generating ? "loading" : ""}`} onClick={onGenerate} type="button">
           <i className="ri-sparkling-2-line" />
           {generating ? "AI 分析中" : "生成 AI 经营日报"}
         </button>
       </div>
       <div className="topbar-user">
-        <button className="icon-button" type="button"><i className="ri-notification-3-line" /><span>12</span></button>
         <div className="user-mini"><div className="avatar dark">张</div><span>张总</span></div>
       </div>
     </header>
@@ -716,7 +703,7 @@ function StoreComparison() {
           <h3>门店对比</h3>
           <p>今日午市 vs 近 4 个周四均值</p>
         </div>
-        <button className="mini-button" type="button">指标：实收金额</button>
+        <span className="mini-label">指标：实收金额</span>
       </div>
       <table>
         <thead>
@@ -749,7 +736,7 @@ function WordCloud() {
     <div className="surface word-cloud">
       <div className="section-title compact">
         <h3>当前问题相关评论</h3>
-        <button className="link-button" type="button">查看原文</button>
+        <span className="mini-label">近 3 天评论</span>
       </div>
       <div className="cloud">
         <span className="xl red">漏汤</span>
@@ -793,6 +780,7 @@ function CurrentIssueEvidence({ issue, onOpenEvidence }) {
 
 function AdvisorPanel({ selectedIssue, onCreateTask, taskCreated, onOpenEvidence }) {
   const [trust, source, gap] = trustForIssue(selectedIssue);
+  const impactIsMoney = selectedIssue.impact.includes("元");
   return (
     <aside className="advisor-panel">
       <div className="advisor-head">
@@ -838,9 +826,9 @@ function AdvisorPanel({ selectedIssue, onCreateTask, taskCreated, onOpenEvidence
           </div>
         </section>
         <section>
-          <h4>预计影响</h4>
+          <h4>目标与影响</h4>
           <div className="impact-grid">
-            <div><i className="ri-money-cny-circle-line" /><strong>{selectedIssue.impact.replace("预计", "")}</strong><span>经营改善</span></div>
+            <div><i className={impactIsMoney ? "ri-money-cny-circle-line" : "ri-flag-line"} /><strong>{selectedIssue.impact.replace("预计", "")}</strong><span>{impactIsMoney ? "经营估算" : "验收目标"}</span></div>
             <div><i className="ri-check-double-line" /><strong>{selectedIssue.taskDetails.acceptance.split("，")[0]}</strong><span>验收指标</span></div>
             <div><i className="ri-timer-line" /><strong>{selectedIssue.taskDetails.review}</strong><span>复盘时间</span></div>
           </div>
@@ -910,7 +898,7 @@ function SaasBoundaryPage() {
         <h3>这页要让客户记住的只有三句话</h3>
         <div>
           <strong>原系统不用换</strong>
-          <strong>先用 4 张表跑 7 天</strong>
+          <strong>先用 4 张表做 7 天诊断</strong>
           <strong>用真实问题决定是否买单</strong>
         </div>
       </section>
@@ -1067,14 +1055,14 @@ function OverviewPage({ selectedIssue, setSelectedIssue, onCreateTask, taskCreat
         </div>
         <div className="command-kpis">
           <div><strong>3</strong><span>今日必须处理</span></div>
-          <div><strong>2,900-4,200</strong><span>预计改善空间 / 日</span></div>
-          <div><strong>5</strong><span>待确认任务</span></div>
+          <div><strong>800-1,200</strong><span>营收空间 / 日</span></div>
+          <div><strong>900-1,200</strong><span>毛利空间 / 近 7 日</span></div>
         </div>
       </section>
       <section className="issue-column">
         <div className="page-heading">
           <span className="page-kicker">第一步：选事件</span>
-          <h1>今日必须处理 <b>3</b> 件经营事件</h1>
+          <h2>今日必须处理 <b>3</b> 件经营事件</h2>
           <p>按影响金额、可控性、证据完整度和复盘难度排序</p>
         </div>
         <div className="triage-strip">
@@ -1118,9 +1106,9 @@ function OverviewPage({ selectedIssue, setSelectedIssue, onCreateTask, taskCreat
 
 function AlertsPage({ selectedIssue, setSelectedIssue, onCreateTask, onOpenEvidence }) {
   const alertCats = [
-    { rank: "01", group: "销售层", label: "营收异常", count: 8, impact: "近 7 日累计影响 18.7 万", highlight: "最严重：滨江宝龙店午市 -18.6%", icon: "ri-money-cny-circle-line", tone: "danger" },
-    { rank: "02", group: "利润层", label: "毛利异常", count: 6, impact: "近 7 日累计影响 12.3 万", highlight: "重点：小炒黄牛肉成本率 +6.9pp", icon: "ri-pie-chart-line", tone: "warning" },
-    { rank: "03", group: "口碑层", label: "评论异常", count: 12, impact: "待处理差评 23 条", highlight: "重点：湖滨银泰店漏汤 7 条", icon: "ri-message-3-line", tone: "blue" },
+    { rank: "01", group: "销售层", label: "营收异常", count: 8, impact: "首要事件营收空间 800-1200 元/日", highlight: "最严重：滨江宝龙店午市 -18.6%", icon: "ri-money-cny-circle-line", tone: "danger" },
+    { rank: "02", group: "利润层", label: "毛利异常", count: 6, impact: "首要事件近 7 日毛利差 1,504 元", highlight: "重点：小炒黄牛肉毛利率低于目标 12.2pp", icon: "ri-pie-chart-line", tone: "warning" },
+    { rank: "03", group: "口碑层", label: "评论异常", count: 12, impact: "整改目标：3 日内漏汤差评不超过 2 条", highlight: "重点：湖滨银泰店漏汤 7 条", icon: "ri-message-3-line", tone: "blue" },
     { rank: "04", group: "渠道层", label: "外卖异常", count: 7, impact: "低毛利套餐占比 63%", highlight: "重点：满 45 减 8 后毛利承压", icon: "ri-motorbike-line", tone: "orange" },
     { rank: "05", group: "供应层", label: "备货异常", count: 5, impact: "预计报损风险 640 元", highlight: "重点：青椒预计多备 8kg", icon: "ri-box-3-line", tone: "green" },
     { rank: "06", group: "执行层", label: "人效异常", count: 4, impact: "晚市人效低于目标", highlight: "重点：未来科技城店 -22%", icon: "ri-team-line", tone: "neutral" },
@@ -1148,7 +1136,7 @@ function AlertsPage({ selectedIssue, setSelectedIssue, onCreateTask, onOpenEvide
           <h1>AI 巡店预警中心</h1>
           <p>不是把六类数据并排展示，而是让 AI 按影响、证据和可执行性决定今天先处理什么。</p>
         </div>
-        <button className="secondary-action" type="button">AI 推荐预警规则</button>
+        <span className="rule-summary"><i className="ri-magic-line" /> AI 已推荐 6 条预警规则</span>
       </div>
       <div className="alert-scan-summary">
         {scanSteps.map(([title, text], index) => (
@@ -1192,7 +1180,7 @@ function AlertsPage({ selectedIssue, setSelectedIssue, onCreateTask, onOpenEvide
       <div className="alert-layout">
         <section className="surface alert-list-panel">
           <span className="section-flow-label">第一步：选预警</span>
-          <div className="tabs"><button className="active">按严重程度</button><button>按影响金额</button><button>未处理</button></div>
+          <div className="sort-summary"><span>当前排序</span><strong>经营影响优先</strong><em>再看证据完整度与可执行性</em></div>
           {issues.map((issue) => (
             <button className={`alert-row ${selectedIssue.id === issue.id ? "active" : ""}`} key={issue.id} onClick={() => setSelectedIssue(issue)} type="button">
               <span className={`dot ${issue.severityClass}`} />
@@ -1238,13 +1226,40 @@ function AlertsPage({ selectedIssue, setSelectedIssue, onCreateTask, onOpenEvide
 }
 
 function ReportPage({ generating, reportGenerated, onGenerate, onCreateTask }) {
+  const [copyState, setCopyState] = useState("idle");
   const actionStates = ["待确认", "已派发", "店长已确认", "已上传证据"];
+  const storeManagerMessage = "今日重点：\n1. 滨江宝龙店 10:50 前调整午市工作餐排序，13:30 前反馈午市订单。\n2. 湖滨银泰店晚高峰汤品全部双层袋，抽检 20 单并上传封包照片。\n3. 各店小炒黄牛肉按标准克重复核，晚班前上传称重照片。";
   const reportEvidenceRows = [
     ["销售依据", "滨江宝龙午市", "-18.6%", "POS + 外卖曝光", "用于判断：不是全盘下滑，而是午市外卖工作餐掉量。"],
     ["口碑依据", "湖滨漏汤反复", "7 条", "评论标签 + 订单", "用于判断：问题不是口味，而是晚高峰打包 SOP 变形。"],
-    ["毛利依据", "小炒黄牛肉", "-3.8 元", "成本卡 + 领料", "用于判断：招牌菜不用下架，先复核成本和克重。"],
+    ["毛利依据", "小炒黄牛肉", "-4.6 元", "成本卡 + 领料", "用于判断：招牌菜不用下架，先复核成本和克重。"],
     ["备货依据", "青椒多备风险", "160 元", "净菜计划 + 预测", "用于判断：外卖活动调整后，明日采购需要同步下调。"],
   ];
+
+  const copyStoreManagerMessage = async () => {
+    const textArea = document.createElement("textarea");
+    textArea.value = storeManagerMessage;
+    textArea.setAttribute("readonly", "");
+    textArea.style.position = "fixed";
+    textArea.style.opacity = "0";
+    document.body.appendChild(textArea);
+    textArea.select();
+    const copied = document.execCommand("copy");
+    document.body.removeChild(textArea);
+
+    if (copied) {
+      setCopyState("copied");
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(storeManagerMessage);
+      setCopyState("copied");
+    } catch {
+      setCopyState("failed");
+    }
+  };
+
   return (
     <div className="report-layout">
       <section className="surface report-canvas">
@@ -1255,8 +1270,15 @@ function ReportPage({ generating, reportGenerated, onGenerate, onCreateTask }) {
             <span className={generating ? "status-chip running" : "status-chip"}>{generating ? "正在生成" : reportGenerated ? "08:30 已生成" : "待生成"}</span>
           </div>
           <div className="button-row">
-            <button className="secondary-action small" type="button"><i className="ri-file-copy-line" /> 复制店长群版</button>
-            <button className="secondary-action small" type="button"><i className="ri-download-2-line" /> 导出 PDF</button>
+            <button
+              className="secondary-action small"
+              type="button"
+              onClick={copyStoreManagerMessage}
+            >
+              <i className={copyState === "copied" ? "ri-check-line" : "ri-file-copy-line"} />
+              {copyState === "copied" ? "已复制" : copyState === "failed" ? "复制失败" : "复制店长群版"}
+            </button>
+            <button className="secondary-action small" type="button" onClick={() => window.print()}><i className="ri-printer-line" /> 打印 / 存为 PDF</button>
             <button className="primary-action small" type="button" onClick={onGenerate}>重新生成日报</button>
           </div>
         </div>
@@ -1270,8 +1292,8 @@ function ReportPage({ generating, reportGenerated, onGenerate, onCreateTask }) {
         ) : (
           <div className="report-sections">
             <ReportSection title="老板版结论" className="report-summary-section">
-              <p>昨日不是全盘下滑，问题集中在三件事：滨江宝龙店午市外卖工作餐掉量、湖滨银泰店汤品漏汤差评反复、小炒黄牛肉成本率异常上升。今天先处理这三件，其他问题暂不扩大。</p>
-              <div className="evidence-chips"><span>滨江宝龙店午市 -18.6%</span><span>漏汤差评 7 条</span><span>小炒黄牛肉低于目标 3.8 元</span><span>青椒报损风险 160 元</span></div>
+              <p>昨日不是全盘下滑，问题集中在三件事：滨江宝龙店午市外卖工作餐掉量、湖滨银泰店汤品漏汤差评反复、小炒黄牛肉真实毛利低于目标。今天先处理这三件，其他问题暂不扩大。</p>
+              <div className="evidence-chips"><span>滨江宝龙店午市 -18.6%</span><span>漏汤差评 7 条</span><span>小炒黄牛肉低于目标 4.6 元</span><span>青椒报损风险 160 元</span></div>
             </ReportSection>
             <ReportSection title="本日报引用的 4 组证据" className="report-evidence-section">
               <div className="report-evidence-grid">
@@ -1316,7 +1338,7 @@ function ReportPage({ generating, reportGenerated, onGenerate, onCreateTask }) {
               <div className="dish-report-row">
                 <img src="/assets/beef-pepper.png" alt="小炒黄牛肉" />
                 <div><strong>小炒黄牛肉</strong><span>不下架，先复核成本</span></div>
-                <b>327 份</b><b className="negative">真实毛利 9.1 元</b><b className="negative">目标差距 3.8 元</b>
+                <b>327 份 / 近 7 日</b><b className="negative">真实毛利 8.3 元</b><b className="negative">目标差距 4.6 元</b>
               </div>
             </ReportSection>
             <ReportSection title="评论与整改" className="report-half-section">
@@ -1345,7 +1367,7 @@ function ReportPage({ generating, reportGenerated, onGenerate, onCreateTask }) {
             <p>负责人：{issue.taskDetails.owner}</p>
             <p>验收：{issue.taskDetails.acceptance}</p>
             <em className="task-state">{actionStates[index]}</em>
-            <button className="outline-action" onClick={() => onCreateTask(issue)} type="button">{index === 0 ? "确认派发" : "查看任务"}</button>
+            <button className="outline-action" onClick={() => onCreateTask(issue)} type="button" disabled={index >= 2}>{index >= 2 ? "已在任务队列" : "确认派发"}</button>
           </div>
         ))}
         <div className="review-results">
@@ -1383,10 +1405,10 @@ function DishesPage() {
       packageCost: "-1.2 元",
       subsidy: "-3.4 元",
       waste: "-0.8 元",
-      netProfit: "9.1 元",
-      margin: "23.9%",
+      netProfit: "8.3 元",
+      margin: "21.8%",
       target: "34.0%",
-      gap: "-3.8 元/份",
+      gap: "-4.6 元/份",
       action: "暂停深度满减，复核出成率",
       reason: "销量高，但成本、佣金和活动补贴叠加后拖低毛利。",
     },
@@ -1497,7 +1519,7 @@ function DishesPage() {
             <h3>菜品毛利榜</h3>
             <p>按“销量、真实毛利、目标差距、是否能当天处理”排序，不用看象限。</p>
           </div>
-          <button className="mini-button" type="button">堂食 + 外卖</button>
+          <span className="mini-label">堂食 + 外卖</span>
         </div>
         <div className="dish-segment-strip">
           <span><strong>2</strong> 今日要处理</span>
@@ -1528,7 +1550,7 @@ function DishesPage() {
         </div>
       </section>
       <section className="surface profit-card">
-        <div className="section-title compact"><h3>真实毛利测算</h3><span className="trust medium">估算可信度 82%</span></div>
+        <div className="section-title compact"><h3>真实毛利测算</h3><span className="trust medium">估算可信度：中</span></div>
         <div className="dish-hero"><img src="/assets/beef-pepper.png" alt="小炒黄牛肉" /><div><strong>{selectedDishData.name}</strong><p>{selectedDishData.reason}</p></div></div>
         <div className="cost-lines">
           {[
@@ -1760,7 +1782,7 @@ function PilotPage() {
   ];
   const qualities = [
     ["门店销售", "已匹配", "可生成门店异常和日报", 98],
-    ["菜品明细", "已匹配", "可生成菜品四象限", 92],
+    ["菜品明细", "已匹配", "可生成菜品毛利排序", 92],
     ["评论文本", "已匹配", "可生成差评归因", 86],
     ["成本卡", "部分缺失", "毛利先按经营估算值计算", 64],
     ["净菜损耗", "试点补充", "备货预测可先跑，损耗优化后续校准", 52],
@@ -1768,21 +1790,22 @@ function PilotPage() {
   const timeline = [
     ["第 1 天", "导出 4 张表", "字段映射与数据质量报告"],
     ["第 2 天", "确认门店和菜品口径", "首版经营诊断"],
-    ["第 3 天", "补充成本或估算口径", "菜品四象限"],
+    ["第 3 天", "补充成本或估算口径", "菜品真实毛利诊断"],
     ["第 4 天", "提供评论样本", "评论归因与整改任务"],
     ["第 5 天", "选择日报接收人", "AI 经营日报"],
-    ["第 6 天", "店长执行 3 个动作", "效果追踪"],
-    ["第 7 天", "参加复盘会议", "试点复盘 PPT 与下一阶段方案"],
+    ["第 6 天", "确认 3 个任务和验收标准", "效果试点任务清单"],
+    ["第 7 天", "参加诊断复盘会", "成功门槛核验与下一阶段方案"],
   ];
 
   return (
     <div className="pilot-layout">
       <div className="page-heading wide-heading">
-        <h1>不用改系统，先用数据跑 7 天试点</h1>
-        <p>客户先给 4 张表，知味输出经营诊断、日报、整改任务和试点复盘</p>
+        <span className="page-kicker">先诊断，再验证效果</span>
+        <h1>不用改系统，先用数据跑 7 天诊断冲刺</h1>
+        <p>客户先给 4 张表，知味交付经营诊断、日报样稿和任务设计；诊断达标后，再进入 4-6 周效果试点。</p>
       </div>
       <section className="surface pilot-card">
-        <div className="section-title"><div><h3>不用改系统，先用数据跑 7 天试点</h3><p>支持 Excel / CSV / 后台导出数据，先跑经营日报、菜品分析和评论整改</p></div><button className="primary-action small" type="button" onClick={() => setUploaded(true)}>模拟上传数据</button></div>
+        <div className="section-title"><div><h3>第一阶段：7 天诊断冲刺</h3><p>支持 Excel / CSV / 后台导出数据，核心先做经营日报、菜品毛利和评论整改</p></div><button className="primary-action small" type="button" onClick={() => setUploaded(true)}>{uploaded ? "样本已上传" : "模拟上传数据"}</button></div>
         <div className={`upload-zone ${uploaded ? "done" : ""}`}>
           <i className={uploaded ? "ri-check-line" : "ri-upload-cloud-2-line"} />
           <strong>{uploaded ? "样本数据已上传" : "第一步不用开发接口，先上传 4 张表"}</strong>
@@ -1802,7 +1825,7 @@ function PilotPage() {
         </div>
       </section>
       <section className="surface timeline-card">
-        <h3>7 天试点交付物</h3>
+        <h3>7 天诊断节奏</h3>
         {timeline.map(([day, customer, deliverable], index) => (
           <div className="timeline-row rich" key={day}><span>{index + 1}</span><p><strong>{day}</strong><br />客户配合：{customer}<br />我们交付：{deliverable}</p></div>
         ))}
@@ -1819,9 +1842,33 @@ function PilotPage() {
           </tbody>
         </table>
         <p>当前毛利为经营估算值，可用于发现异常和排序；接入实际领料和损耗后，可升级为精细核算值。</p>
+        <div className="pilot-stages">
+          <div>
+            <span>阶段 1</span>
+            <strong>7 天诊断冲刺</strong>
+            <p>验证数据能否形成客户认可的判断、日报和任务。</p>
+          </div>
+          <i className="ri-arrow-right-line" />
+          <div>
+            <span>阶段 2</span>
+            <strong>4-6 周效果试点</strong>
+            <p>让门店执行任务，按周复盘订单、毛利、差评和报损变化。</p>
+          </div>
+        </div>
         <div className="trial-boundary">
-          <strong>7 天试点不承诺直接提升多少营业额。</strong>
-          <p>承诺交付门店诊断、菜品毛利诊断、评论归因、3 个可执行任务、一次效果复盘和下一阶段接入建议。</p>
+          <strong>7 天不承诺直接提升多少营业额。</strong>
+          <p>承诺交付数据质量评估、门店诊断、菜品毛利诊断、评论归因、日报样稿、3 个任务设计和下一阶段建议。</p>
+        </div>
+        <div className="pilot-success-gates">
+          <h3>进入效果试点的门槛</h3>
+          <div><span>01</span><p>数据可用率达到双方约定标准</p></div>
+          <div><span>02</span><p>至少找出 3 个客户认可的经营问题</p></div>
+          <div><span>03</span><p>至少 2 个任务具备负责人和验收标准</p></div>
+          <div><span>04</span><p>客户确认值得进入 4-6 周效果试点</p></div>
+        </div>
+        <div className="pilot-safety-note">
+          <strong><i className="ri-lock-2-line" /> 数据使用边界</strong>
+          <p>只使用客户授权导出数据；会员、评论和员工信息先脱敏；试点前约定保存周期、删除方式和保密责任。</p>
         </div>
         <h3>最适合试点的客户</h3>
         <div className="fit-list compact">
@@ -1852,9 +1899,13 @@ function PresentationPage() {
     return () => window.removeEventListener("keydown", handleKeydown);
   }, [slideIndex]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [slideIndex]);
+
   return (
     <div className="presentation-page">
-      <main className="ppt-workbench">
+      <div className="ppt-workbench">
         <section className={`ppt-slide-card ${slide.type}`}>
           <div className="ppt-slide-number">{String(slide.id).padStart(2, "0")}</div>
           <header className="ppt-slide-head">
@@ -1875,10 +1926,24 @@ function PresentationPage() {
           </div>
           <div className="button-row">
             <button className="secondary-action small" type="button" onClick={() => goToSlide(slideIndex - 1)} disabled={slideIndex === 0}>上一页</button>
+            <nav className="ppt-page-jump" aria-label="跳转到指定页面">
+              {pptSlides.map((item, index) => (
+                <button
+                  key={item.id}
+                  className={slideIndex === index ? "active" : ""}
+                  type="button"
+                  aria-label={`跳转到第 ${index + 1} 页`}
+                  aria-current={slideIndex === index ? "page" : undefined}
+                  onClick={() => goToSlide(index)}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </nav>
             <button className="primary-action small" type="button" onClick={() => goToSlide(slideIndex + 1)} disabled={slideIndex === pptSlides.length - 1}>下一页</button>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }
@@ -1886,14 +1951,13 @@ function PresentationPage() {
 function PptVisual({ slide }) {
   if (slide.type === "cover") {
     return (
-      <div className="ppt-hero-map">
-        <div className="ppt-orbit">
-          {["收银", "外卖", "评论", "成本", "备货", "巡店"].map((item, index) => (
-            <span className={`orbit-node node-${index + 1}`} key={item}>{item}</span>
-          ))}
-          <strong>AI<br />经营参谋</strong>
-        </div>
-        <div className="hero-result">
+      <div className="ppt-cover-proof">
+        <figure>
+          <img src={slide.image} alt="知味 AI 经营指挥台演示界面" />
+          <figcaption>演示样例数据</figcaption>
+        </figure>
+        <div className="cover-value">
+          <span>AI 经营参谋</span>
           <b>{slide.highlight}</b>
           <div>{slide.chips.map((chip) => <span key={chip}>{chip}</span>)}</div>
         </div>
@@ -1942,14 +2006,14 @@ function PptVisual({ slide }) {
 
   if (slide.type === "loop") {
     return (
-      <div className="ppt-loop-system">
-        <div className="loop-ring">
-          {slide.steps.map((step, index) => (
-            <div className={`loop-node loop-${index + 1}`} key={step}><span>{index + 1}</span><strong>{step}</strong></div>
-          ))}
-          <div className="loop-center">经营闭环</div>
+      <div className="ppt-closure-flow">
+        <div className="closure-steps">
+          {slide.steps.map((step, index) => <div key={step}><span>{index + 1}</span><strong>{step}</strong></div>)}
         </div>
-        <blockquote>{slide.quote}</blockquote>
+        <div className="closure-case">
+          <span>真实事件链</span>
+          <blockquote>{slide.quote}</blockquote>
+        </div>
       </div>
     );
   }
@@ -1970,18 +2034,11 @@ function PptVisual({ slide }) {
 
   if (slide.type === "demo") {
     return (
-      <div className="ppt-product-screen">
-        <div className="screen-shell">
-          <aside />
-          <main>
-            <div className="screen-toolbar"><span /><span /><span /></div>
-            <section className="event-priority">
-              <b>今日必须处理 3 件事</b>
-              <p>按影响金额、证据完整度和可执行性排序</p>
-            </section>
-            <section className="event-card-main">{slide.card.map((item) => <p key={item}>{item}</p>)}</section>
-          </main>
-        </div>
+      <div className="ppt-product-screen real-product-screen">
+        <figure>
+          <img src={slide.image} alt="知味 AI 经营指挥台演示界面" />
+          <figcaption>演示样例数据</figcaption>
+        </figure>
         <div className="screen-zones">{slide.zones.map((zone, index) => <span key={zone}><b>{index + 1}</b>{zone}</span>)}</div>
       </div>
     );
@@ -1989,13 +2046,14 @@ function PptVisual({ slide }) {
 
   if (slide.type === "alerts") {
     return (
-      <div className="ppt-priority-map">
-        <div className="priority-core">今日<br />优先级</div>
+      <div className="ppt-priority-list">
+        <div className="priority-list-head"><span>顺序</span><span>问题类型</span><span>数量</span><span>今天先看什么</span></div>
         {slide.alerts.map(([title, count, text], index) => (
-          <div className={`priority-card priority-${index + 1}`} key={title}>
-            <strong>{title}</strong><b>{count}</b><p>{text}</p>
+          <div className="priority-list-row" key={title}>
+            <span>{String(index + 1).padStart(2, "0")}</span><strong>{title}</strong><b>{count}</b><p>{text}</p>
           </div>
         ))}
+        <div className="priority-list-note">先按经营影响排队，再看证据是否完整、门店今天能不能执行。</div>
       </div>
     );
   }
@@ -2059,7 +2117,7 @@ function PptVisual({ slide }) {
     return (
       <div className="ppt-pilot-path">
         <div className="pilot-inputs">{slide.tables.map((item) => <span key={item}>{item}</span>)}</div>
-        <div className="pilot-arrow">4 张表 → 7 天试点 → 复盘决策</div>
+        <div className="pilot-arrow">{slide.path}</div>
         <div className="pilot-days">{slide.days.map((item, index) => <span key={item}><b>{index + 1}</b>{item}</span>)}</div>
       </div>
     );
@@ -2069,7 +2127,9 @@ function PptVisual({ slide }) {
     return (
       <div className="ppt-deliver-map">
         <div className="deliver-core">客户自己的<br />经营诊断</div>
-        <div className="ppt-deliver-grid">{slide.deliverables.map((item) => <span key={item}>{item}</span>)}</div>
+        <div className="ppt-deliver-grid">{slide.deliverables.map((item) => (
+          <span className={item.startsWith("核心") ? "core" : item.startsWith("可选") ? "optional" : "next"} key={item}>{item}</span>
+        ))}</div>
         <div className="ppt-focus-row">{slide.focus.map((item) => <strong key={item}>{item}</strong>)}</div>
       </div>
     );
@@ -2113,6 +2173,10 @@ export function App() {
 
   const currentTaskCreated = tasks.some((task) => task.title === selectedIssue.task);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [activePage]);
+
   const createTask = (issue) => {
     if (!tasks.some((task) => task.title === issue.task)) {
       setTasks((prev) => [
@@ -2144,7 +2208,7 @@ export function App() {
   };
 
   return (
-    <div className="app-shell">
+    <div className={`app-shell ${activePage === "presentation" ? "presentation-mode" : ""}`}>
       <Sidebar activePage={activePage} setActivePage={setActivePage} />
       <main className="workspace">
         <Topbar onGenerate={generateReport} generating={generating} activePage={activePage} />
