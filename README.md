@@ -2,8 +2,15 @@
 
 这是一个用于客户拜访的前端演示项目，包含：
 
-- 产品 Demo：AI 经营指挥台、异常预警、经营日报、毛利审计、评论整改、外卖与备货、7 天试点。
-- 介绍 PPT：15 页客户拜访版演示稿，可在网页内上一页/下一页切换。
+- 旧版客户拜访 Demo：产品 Demo + 15 页介绍 PPT，发布在 GitHub Pages 根路径。
+- 新版经营 OS 场景 Demo：PC 场景工作台、移动端任务闭环和模拟数据中心，独立发布在 `ops-demo-v2/` 子路径。
+
+## 对外链接
+
+- 旧版 Demo：`https://xymu2026-boop.github.io/zhiwei-foodmind-ai-demo/`
+- 新版 Demo：`https://xymu2026-boop.github.io/zhiwei-foodmind-ai-demo/ops-demo-v2/#/scene/home/overview`
+
+两套 Demo 是不同版本，请不要把新版文件混入根目录旧版 Demo。
 
 ## 本地运行
 
